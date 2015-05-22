@@ -78,6 +78,7 @@ function aduel($answer, $id, $op){
         $nick = getnick($id);
         db::send("insert into messages (userid, message) select id, 'Start#$nick' from users where nick='$op'");
         db::send("insert into messages (userid, message) VALUES('$id', 'Start#$op')");
+		db::send("update users set duel='-' where nick='$op'");
         myexit('OK');
     }
     myexit('NOK');
