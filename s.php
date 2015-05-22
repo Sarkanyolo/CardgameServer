@@ -45,7 +45,7 @@ function gstatus($id){
     if($str !== ''){myexit('Duel'.$str);}
     
     // Check if messages
-    $res = db::send("select * from messages where userid='$id'");
+    $res = db::send("select * from messages where userid='$id' order by id");
     while($v = db::fetch($res)){
         db::send('delete from messages where id='. $v['id']);
         myexit($v['message']);
@@ -144,9 +144,9 @@ db::disconnect();
             <table>
                 <tr>
                     <td>
-                        aduel=<span class='respOK'>YES</span>&me=<i>myid</i>&op=<i>opponentname</i>
+                        aduel=<span class='respOK'>YES</span>&me=<i>myid</i>&op=<i>username</i>
                         <br>
-                        aduel=<span class='respOK'>NO</span>&me=<i>myid</i>&op=<i>opponentname</i>
+                        aduel=<span class='respOK'>NO</span>&me=<i>myid</i>&op=<i>username</i>
                     </td>
                     <td>
                         Accept/Refuse the duel<br><br>
@@ -188,11 +188,11 @@ db::disconnect();
                 </tr>
                 <tr>
                     <td>dname=<i>myid</i></td>
-                    <td>Logout<br>Returns <span class='respOK'>OK</span></td>
+                    <td>Logout<br><br>Returns <span class='respOK'>OK</span></td>
                 </tr>
                 <tr>
                     <td>dduel=<i>myid</i></td>
-                    <td>Not waiting for the opponent any more<br>Returns <span class='respOK'>OK</span></td>
+                    <td>Not waiting for the opponent any more<br><br>Returns <span class='respOK'>OK</span></td>
                 </tr>
             </table><br>
             <h4>Possible responses of the <i>gstatus</i> command:</h4>
