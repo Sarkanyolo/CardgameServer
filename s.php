@@ -33,7 +33,7 @@ if(isset($_GET['dduel'])) dduel($_GET['dduel']);
 
 function gstatus($id){
     $nick = getnick($id);
-    if(empty($nick)){myexit('NOK');}
+    if(empty($nick)){myexit('DISC');}
     db::send('update users set lastaction='.time()." where id='$id'");
     $str = '';
     
@@ -203,7 +203,7 @@ db::disconnect();
                 </tr>
                 <tr>
                     <td>When id not found; relogin is needed</td>
-                    <td><span class='respNOK'>NOK</span></td>
+                    <td><span class='respNOK'>DISC</span></td>
                 </tr>
                 <tr>
                     <td>When waiting for duel response</td>
