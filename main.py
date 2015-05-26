@@ -23,5 +23,5 @@ def handle(path):
 
 cs = CardServer()
 server = HTTPServer(('10.190.34.14', 80), GetHandler)
-print('Starting server, use <Ctrl-C> to stop')
+print('Started')
 server.serve_forever()
