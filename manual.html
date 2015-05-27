@@ -58,7 +58,7 @@
 					<td>
 						Log in <i>username</i> (English, lowercase)<br><br>
 						Returns <span class='respNOK'>NOK</span> if reserved.<br>
-						Returns a string (length:10), with <span class='respOK'>unique id</span> if OK
+						Returns a string (length: 3 - 32), with <span class='respOK'>unique id</span> if OK
 					</td>
 				</tr>
 				<tr>
@@ -78,10 +78,10 @@
 					</td>
 				</tr>
 				<tr>
-					<td>swhisp=<i>message%20without%20space</i>&me=<i>id</i>&to=<i>username</i></td>
+					<td>swhisp=<i>urlencode(message)</i>&me=<i>id</i>&to=<i>username</i></td>
 					<td>
 						Sends whisper to desired player<br><br>
-						Server automatically converts '%20' to spaces in message<br>
+						Server automatically urldecode the message<br>
 						Returns <span class='respOK'>OK</span> - message sent<br>
 						Returns <span class='respNOK'>DISC</span> - user disconnected
 					</td>
@@ -123,7 +123,7 @@
 				</tr>
 				<tr>
 					<td>When the game ends</td>
-					<td><span class='respOK'>EndGame</span></td>
+					<td><span class='respOK'>EndGame#RESULT</span><br><br>RESULT can be: <span class='respOK'>WIN, DRAW, LOSE</span></td>
 				</tr>
 				<tr>
 					<td>When whisper received</td>
